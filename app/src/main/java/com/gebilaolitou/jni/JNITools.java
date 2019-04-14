@@ -8,6 +8,7 @@ public class JNITools {
 
     static {
         System.loadLibrary("jnidemo3");
+        System.loadLibrary("certkit-armeabi-android-64");
     }
 
     //加法
@@ -21,6 +22,7 @@ public class JNITools {
 
     //除法
     public static native int div(int a,int b);
+    public static native String genKeyPair(String a,int b);
 
 
 }

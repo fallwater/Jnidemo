@@ -16,6 +16,16 @@ android {
             ldLibs "log"
         }
     }
+
+    sourceSets {
+        main {
+            // Don't use native sources building using gradle,
+            // since gradle ignores custom Android.mk
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs','src/main/jniLibs']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false

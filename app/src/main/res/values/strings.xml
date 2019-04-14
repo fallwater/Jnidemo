@@ -4,6 +4,7 @@
     <string name="sub">相减</string>
     <string name="mul">相乘</string>
     <string name="div">相除</string>
+    <string name="gen">加密</string>
 
 
 </resources>

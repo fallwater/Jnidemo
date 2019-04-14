@@ -1,7 +1,7 @@
 package com.gebilaolitou.jni;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnAdd,btnSub,btnMul,btnDiv;
+    private Button btnAdd,btnSub,btnMul,btnDiv,btnGen;
     private EditText inputA,inputB;
     private TextView tvResult;
 
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDiv.setOnClickListener(this);
         btnMul.setOnClickListener(this);
         btnSub.setOnClickListener(this);
+        btnGen.setOnClickListener(this);
     }
 
     private void setupView() {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDiv=this.findViewById(R.id.div);
         btnMul=this.findViewById(R.id.mul);
         btnSub=this.findViewById(R.id.sub);
+        btnGen=this.findViewById(R.id.gen);
 
         inputA=this.findViewById(R.id.inputa);
         inputB=this.findViewById(R.id.inputb);
@@ -56,12 +58,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 result=JNITools.div(a,b);
                 break;
             case R.id.mul:
-                result=JNITools.mul(a,b);
+                result = JNITools.mul(a, b);
                 break;
             case R.id.sub:
-                result=JNITools.sub(a,b);
+                result = JNITools.sub(a, b);
+                break;
+            case R.id.gen:
+                String gen = JNITools.genKeyPair(strA, b);
+                tvResult.setText(gen);
+                return;
+            default:
                 break;
         }
-        tvResult.setText(""+result);
+        tvResult.setText("" + result);
     }
 }

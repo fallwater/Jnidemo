@@ -74,6 +74,14 @@
         android:id="@+id/div"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+        <Button
+            android:gravity="center"
+            android:layout_weight="1.0"
+            android:text="@string/gen"
+            android:id="@+id/gen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <TextView

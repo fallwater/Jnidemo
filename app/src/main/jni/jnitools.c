@@ -13,8 +13,9 @@ jint mulNumber(JNIEnv *env,jclass clazz,jint a,jint b);
 jint divNumber(JNIEnv *env,jclass clazz,jint a,jint b);
 
 
-
-
+jstring genKeyPair(JNIEnv *env,jclass clazz,jstring a,jint size){
+    return a;
+}
 
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved){
 
@@ -34,14 +35,15 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved){
             {"add","(II)I",(void*)addNumber},
             {"sub","(II)I",(void*)subNumber},
             {"mul","(II)I",(void*)mulNumber},
-            {"div","(II)I",(void*)divNumber}
+            {"div","(II)I",(void*)divNumber},
+            {"genKeyPair","(Ljava/lang/String;I)Ljava/lang/String;",(void*)genKeyPair}
     };
 
     //找到对应的JNITools类
     jclass jClassName=(*env)->FindClass(env,"com/gebilaolitou/jni/JNITools");
 
     //开始注册
-    jint ret = (*env)->RegisterNatives(env,jClassName,method, 4);
+    jint ret = (*env)->RegisterNatives(env,jClassName,method, 5);
 
      //如果注册失败，打印日志
     if (ret != JNI_OK) {
